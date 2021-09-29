@@ -18,3 +18,4 @@ If you've done that, it will automatically run. Connect to the REPL using your I
 - Mana-System (-> not being able to use an unlimited amount of Magic Attacks)
 - More Items (e.g better Potions, Mana-Potions, etc.)
 - Multilingual
+- Play a sound when winning (for now only on CircuitPython)
