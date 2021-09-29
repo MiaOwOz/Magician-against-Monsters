@@ -13,3 +13,8 @@ If you're running CircuitPython, you just need to put the .py-file onto the CIRC
 import game.py
 ```
 If you've done that, it will automatically run. Connect to the REPL using your IDE (like MU Editor). You will automatically be prompted to input your name.
+
+# Ideas for the future
+- Mana-System (-> not being able to use an unlimited amount of Magic Attacks)
+- More Items (e.g better Potions, Mana-Potions, etc.)
+- Multilingual
