@@ -1,4 +1,4 @@
-# Magician agains Monsters
+# Magician against Monsters
 
 This is a simple text-based Python game, aimed to be ran on a Micro-Controller running CircuitPython. It can also be run on a normal computer using Python, altough you'll need to remove the CircuitPython specific lines of code.
 There will be a Python-file for "normal" computers once the game is finished!
