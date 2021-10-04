@@ -1,0 +1,33 @@
+# Spieler
+MOVE: "%playerName%, was wirst du tun?"
+MOVE_PROMPT: "A - Angriff | M - Mage | H - Heilung | F - Flucht"
+ATTACK_STANDARD: "%playerName% greift an!"
+ATTACK_MAGIC: "%playerName% nutzt Magie!"
+MOVE_FAILED: "Daneben!"
+
+# Heilen
+HEALED: "Es wurden %amount% HP wiederhergestellt."
+NO_POTIONS_REMAINING: "Du hast keine Heiltränke mehr übrig!"
+MAXIMUM_HP: "Du hast bereits das maximum an Lebenspunkten!"
+
+# Kampf
+MONSTER_ATTACKS: "Das Monster attackiert!"
+DAMAGE: "%target% wurden %amount% HP Schaden zugefügt!"
+ENEMY_DIE: "%target% wurde besiegt!"
+WIN_MESSAGE: "Du hast den Kampf gewonnen! Glückwunsch!"
+LOSE_MESSAGE: "Du hast den Kampf verloren!"
+
+# Monster | Angriffe
+MONSTER_ATTACKS: "Das Monster attackiert"
+
+# Fliehen
+TRYING_TO_FLEE: "Versuche zu fliehen..."
+FLEE_SUCCESSFUL: "Du bist erfolgreich geflohen!"
+FLEE_FAILED: "Flucht gescheitert!"
+
+# Anderes
+INVALID_OPERATION: "Ungültige Eingabe!"
+NAME_PROMPT: "Wie heißt du? : "
+INTRODUCTION: "Hallo %playerName%! Du wirst nun eine spannende (naja, nicht wirklich) Reise erleben!"
+
+MONSTER_APPEAR: "Oh nein! Ein Monster! Schnell, besiege es!"
