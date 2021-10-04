@@ -1,29 +1,27 @@
 import time
 import random
-##import digitalio
-##import board
+import digitalio
+import board
 import sys
-from enum import Enum
 
-class AttackType(Enum):
-    STANDARD = 0
-    MAGIC = 1
+# 0 = Standard; 1 = Magic
+ATTACK_TYPE = 0
 
 FLEEING_CHANCE = 25
 HEALING_AMOUNT = 150
 STANDARD_ACCURACY = 75
 MAGIC_ACCURACY = 60
 
-#led_red = digitalio.DigitalInOut(board.D10)
-#led_green = digitalio.DigitalInOut(board.D11)
-#led_blue = digitalio.DigitalInOut(board.D12)
-#led_red.direction = digitalio.Direction.OUTPUT
-#led_green.direction = digitalio.Direction.OUTPUT
-#led_blue.direction = digitalio.Direction.OUTPUT
+led_red = digitalio.DigitalInOut(board.D10)
+led_green = digitalio.DigitalInOut(board.D11)
+led_blue = digitalio.DigitalInOut(board.D12)
+led_red.direction = digitalio.Direction.OUTPUT
+led_green.direction = digitalio.Direction.OUTPUT
+led_blue.direction = digitalio.Direction.OUTPUT
 
 player = {
     "name": "Player",
-    "attack": 100,
+    "attack": 1000,
     "magicAttack": 150,
     "critRate": 35,
     "critDamage": 2,
@@ -94,7 +92,7 @@ def drawGame():
 def enemyMove():
     print("Das Monster attackiert!")
     time.sleep(1.0)
-    attack(enemy, player, AttackType.STANDARD)
+    attack(enemy, player, 0)
 
 def setHP(entity, value):
     entity["currentHP"] = value
@@ -132,11 +130,11 @@ def heal(entity):
         movePrompt()
 
 def attack(attacker, target, type):
-    attackDamage = attacker["attack"] if type == AttackType.STANDARD else attacker["magicAttack"]
+    attackDamage = attacker["attack"] if type == 0 else attacker["magicAttack"]
 
     hit = random.randint(1, 100)
 
-    if type == AttackType.STANDARD:
+    if type == 0: # Standard-Angriff
         if hit > STANDARD_ACCURACY:
             print("Daneben!")
             time.sleep(2.0)
@@ -166,18 +164,18 @@ def attack(attacker, target, type):
 
     if crit:
         print(target["name"] + " wurden " + str(attackDamage) + " HP Schaden zugefügt! (Crit Hit)")
-        #for x in range(6):
-        #    led_red.value = True
-        #    time.sleep(0.2)
-        #    led_red.value = False
-        #    time.sleep(0.2)
+        for x in range(6):
+            led_red.value = True
+            time.sleep(0.2)
+            led_red.value = False
+            time.sleep(0.2)
     else:
         print(target["name"] + " wurden " + str(attackDamage) + " HP Schaden zugefügt!")
-        #for x in range(6):
-        #    led_blue.value = True
-        #    time.sleep(0.2)
-        #    led_blue.value = False
-        #    time.sleep(0.2)
+        for x in range(6):
+            led_blue.value = True
+            time.sleep(0.2)
+            led_blue.value = False
+            time.sleep(0.2)
 
     time.sleep(1.0)
 
@@ -205,11 +203,11 @@ def movePrompt():
     if move == "A" or move == "a":
         print(player["name"] + " greift an!")
         time.sleep(0.7)
-        attack(player, enemy, AttackType.STANDARD)
+        attack(player, enemy, 0) # Standard-Angriff
     elif move == "M" or move == "m":
         print(player["name"] + " nutzt Magie!")
         time.sleep(0.7)
-        attack(player, enemy, AttackType.MAGIC)
+        attack(player, enemy, 1) # Magie-Angriff
     elif move == "H" or move == "h":
         heal(player)
         enemyMove()
